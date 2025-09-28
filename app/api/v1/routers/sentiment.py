@@ -7,8 +7,9 @@ from typing import List, Optional
 import requests
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel, Field
+from app.core.config import settings
 
-ALPHAVANTAGE_API_KEY = os.getenv("ALPHAVANTAGE_API_KEY", "")
+ALPHAVANTAGE_API_KEY = settings.alphavantage_api_key or ""
 ALPHAVANTAGE_URL = "https://www.alphavantage.co/query"
 SECONDS_BETWEEN_CALLS = float(os.getenv("AV_SECONDS_BETWEEN_CALLS", "12.0"))
 
