@@ -14,6 +14,7 @@ class Settings(BaseSettings):
 
     # External providers
     polygon_api_key: str | None = None
+    polygon_api_key_2: str | None = None
     polygon_base_url: str = "https://api.polygon.io"
 
     # Browser Use

@@ -6,6 +6,7 @@ from app.api.v1.routers.quarterly import router as quarterly_router
 from app.api.v1.routers.latestevents import router as latestevents_router
 from app.api.v1.routers.sentiment import router as sentiment_router
 from app.api.v1.routers.chat import router as chat_router
+from app.api.v1.routers.profit import router as profit_router
 
 
 def create_app() -> FastAPI:
@@ -46,6 +47,7 @@ def create_app() -> FastAPI:
     app.include_router(latestevents_router, prefix=settings.api_prefix)
     app.include_router(sentiment_router, prefix=settings.api_prefix)
     app.include_router(chat_router, prefix=settings.api_prefix)
+    app.include_router(profit_router, prefix=settings.api_prefix)
 
     return app
 
