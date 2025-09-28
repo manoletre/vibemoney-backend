@@ -13,12 +13,12 @@ def get_time_series(
     symbol: str,
     interval: str = Query(
         default="1d",
-        description="Time interval between data points (e.g., 1m, 5m, 1h, 1d)",
-        pattern=r"^(1m|5m|15m|1h|1d|1wk|1mo)$",
+        description="Time interval between data points. Currently only '1d' is supported.",
+        pattern=r"^(1d)$",
     ),
     limit: int = Query(default=100, ge=1, le=5000, description="Maximum number of data points to return"),
 ) -> TimeSeriesResponse:
-    """Return real market data for the given symbol using Polygon aggregates."""
+    """Return real market data for the given symbol using Alpha Vantage daily series."""
     try:
         # Run async service in a simple blocking way for FastAPI sync path operation
         import anyio
