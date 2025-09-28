@@ -23,7 +23,7 @@ class SentimentItem(BaseModel):
 
 class SentimentResponse(BaseModel):
     tickers: List[str]
-    used_threshold: float = Field(0.05, description="Score threshold for 'good'")
+    used_threshold: float = Field(0.07, description="Score threshold for 'good'")
     results: List[SentimentItem]
 
 
@@ -47,7 +47,7 @@ def _label_from_score(score: Optional[float]) -> Optional[str]:
 )
 def get_sentiment(
     tickers: List[str] = Query(..., description="e.g., tickers=AAPL&tickers=MSFT"),
-    good_threshold: float = Query(0.05, description="Avg sentiment threshold to mark ticker as 'good'"),
+    good_threshold: float = Query(0.07, description="Avg sentiment threshold to mark ticker as 'good'"),
     limit: int = Query(50, ge=1, le=1000, description="Max news items per ticker to aggregate"),
     topics: Optional[List[str]] = Query(None, description="Optional Alpha Vantage topics filter"),
     time_from: Optional[str] = Query(None, description="YYYYMMDDTHHMM lower bound"),

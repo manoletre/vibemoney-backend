@@ -16,6 +16,7 @@ class Settings(BaseSettings):
     polygon_api_key: str | None = None
     polygon_api_key_2: str | None = None
     polygon_base_url: str = "https://api.polygon.io"
+    alphavantage_api_key: str | None = None
 
     # Browser Use
     browser_use_api_key: str | None = None
